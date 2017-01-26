@@ -37,7 +37,7 @@ const EmojiMenu = new Lang.Class({
     this.addEmojiSet('Travel', Emojis.TRAVEL, this)
     this.addEmojiSet('Objects', Emojis.OBJECTS, this)
     this.addEmojiSet('Symbols', Emojis.SYMBOLS, this)
-    this.addEmojiSet('Flags', Emojis.FLAGS, this)
+    // this.addEmojiSet('Flags', Emojis.FLAGS, this)
   },
 
   addEmojiSet: function(title, emojiSet, menuBase) {
