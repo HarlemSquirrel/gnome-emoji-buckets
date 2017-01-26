@@ -1,6 +1,12 @@
 {
-    "name": "Emoji Buckets",
-    "description": "Buckets of emoji for your messaging pleasure.",
-    "uuid": "emoji_buckets@harlemsquirrel",
-    "shell-version": ["3.22"]
+  "name": "Emoji Buckets",
+  "description": "Buckets of emoji for your messaging pleasure.",
+  "shell-version": [
+    "3.18",
+    "3.20",
+    "3.22"
+  ],
+  "url": "https://github.com/harlemsquirrel/gnome-emoji-buckets",
+  "uuid": "emoji_buckets@harlemsquirrel",
+  "version": 1
 }
