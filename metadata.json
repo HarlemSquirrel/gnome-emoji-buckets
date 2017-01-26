@@ -2,5 +2,5 @@
     "name": "Emoji Buckets",
     "description": "Buckets of emoji for your messaging pleasure.",
     "uuid": "emoji_buckets@harlemsquirrel",
-    "shell-version": ["3.22.2"]
+    "shell-version": ["3.22"]
 }

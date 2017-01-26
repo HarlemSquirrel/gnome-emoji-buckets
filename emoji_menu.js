@@ -10,6 +10,7 @@ const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Emojis = Me.imports.emojis
 
+
 const EmojiMenu = new Lang.Class({
   Name: 'EmojiMenu',   // Class Name
   Extends: PanelMenu.Button,  // Parent Class
@@ -27,62 +28,45 @@ const EmojiMenu = new Lang.Class({
     });
 
     box.add(toplabel);
-    // box.add(PopupMenu.arrowIcon(St.Side.BOTTOM));
     this.actor.add_child(box);
 
-    let hiButton = new St.Button({
-      label: 'hi'
-    })
+    this.addEmojiSet('Smileys & People', Emojis.SMILEYS, this)
+    this.addEmojiSet('Nature', Emojis.NATURE, this)
+    this.addEmojiSet('Food', Emojis.FOOD, this)
+    this.addEmojiSet('Activities', Emojis.ACTIVITIES, this)
+    this.addEmojiSet('Travel', Emojis.TRAVEL, this)
+    this.addEmojiSet('Objects', Emojis.OBJECTS, this)
+    this.addEmojiSet('Symbols', Emojis.SYMBOLS, this)
+    this.addEmojiSet('Flags', Emojis.FLAGS, this)
+  },
 
-    // this.actor.add_actor(hiButton);
+  addEmojiSet: function(title, emojiSet, menuBase) {
+    let newMenuSet = new PopupMenu.PopupSubMenuMenuItem(title);
 
-    addPopupSubMenuItem('Smileys & People', Emojis.SMILEYS, this)
-    addPopupSubMenuItem('Nature', Emojis.NATURE, this)
-    addPopupSubMenuItem('Food', Emojis.FOOD, this)
-    addPopupSubMenuItem('Activities', Emojis.ACTIVITIES, this)
-    addPopupSubMenuItem('Travel', Emojis.TRAVEL, this)
-    addPopupSubMenuItem('Objects', Emojis.OBJECTS, this)
-    addPopupSubMenuItem('Symbols', Emojis.SYMBOLS, this)
-    addPopupSubMenuItem('Flags', Emojis.FLAGS, this)
+    let item, container;
+
+    for (var i = 0; i < emojiSet.length; i++) {
+      let emoji = emojiSet[i];
+      if (i % 20 === 0) {
+        item = new PopupMenu.PopupMenuItem('');
+        container = new St.BoxLayout({style_class: 'menu-box', track_hover: false});
+        item.actor.add(container, { expand: true });
+        newMenuSet.menu.addMenuItem(item);
+      }
+      let button = new St.Button({ label: emoji, style_class: 'emoji' });
+      container.add_child(button, {hover: true});
+
+      button.connect('clicked', Lang.bind(menuBase, function(){
+        Clipboard.set_text(CLIPBOARD_TYPE, emoji );
+      }, i));
+    }
+
+
+    menuBase.menu.addMenuItem(newMenuSet);
+    newMenuSet.menu.box.style_class = 'EmojisItemStyle';
   },
 
   destroy: function() {
     this.parent();
   }
 });
-
-function addPopupSubMenuItem(title, emojiSet, menuBase) {
-  let newMenuSet = new PopupMenu.PopupSubMenuMenuItem(title);
-  // let newMenuSection = new PopMenu.PopupMenuSection('New Section!');
-  // let newSeparator = new PopupMenu.PopupSeparatorMenuItem();
-  // let newBaseItem = new PopupMenu.PopupBaseMenuItem({
-  //   reactive: false
-  // });
-
-  for (var i = 0; i < emojiSet.length; i++) {
-    var item = new PopupMenu.PopupMenuItem(emojiSet[i]);
-    item.actor.add_style_class_name('item');
-    newMenuSet.menu.addMenuItem(item);
-    // newBaseItem.actor.add_actor(item);
-
-    item.connect('activate', Lang.bind(menuBase, function(i){
-      Clipboard.set_text(CLIPBOARD_TYPE, emojiSet[arguments[2]] );
-    }, i));
-  }
-
-  menuBase.menu.addMenuItem(newMenuSet);
-  // menuBase.menu.addMenuItem(newSeparator);
-  newMenuSet.menu.box.style_class = 'EmojisItemStyle';
-}
-
-
-/*
-const PopupMenu = imports.ui.popupMenu;
-ext = imports.misc.extensionUtils.extensions['emoji_buckets@harlemsquirrel'];
-EmojiMenu = ext.stateObj.EmojiMenu;
-newMenuSet = new PopupMenu.PopupSubMenuMenuItem('A Popup Menu Menu Item!');
-item = new PopupMenu.PopupMenuItem('cheese!');
-
-
-hiButton = new St.Button({ label: 'hi' })
-*/
