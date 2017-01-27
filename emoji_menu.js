@@ -4,11 +4,9 @@ const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 const St = imports.gi.St;
 
-const Clipboard = St.Clipboard.get_default();
-const CLIPBOARD_TYPE = St.ClipboardType.CLIPBOARD;
-
 const Me = imports.misc.extensionUtils.getCurrentExtension();
-const Emojis = Me.imports.emojis
+const Emojis = Me.imports.emojis;
+const EmojiButton = Me.imports.emoji_button.EmojiButton;
 
 
 const EmojiMenu = new Lang.Class({
@@ -16,7 +14,6 @@ const EmojiMenu = new Lang.Class({
   Extends: PanelMenu.Button,  // Parent Class
 
   _init: function() {
-
     this.parent(0, 'EmojiMenu', false);
 
     let box = new St.BoxLayout();
@@ -48,17 +45,15 @@ const EmojiMenu = new Lang.Class({
     for (var i = 0; i < emojiSet.length; i++) {
       let emoji = emojiSet[i];
       if (i % 20 === 0) {
-        item = new PopupMenu.PopupMenuItem('');
-        container = new St.BoxLayout({style_class: 'menu-box', track_hover: false});
+        item = new PopupMenu.PopupBaseMenuItem('');
+        item.actor.track_hover = false;
+        container = new St.BoxLayout({ style_class: 'menu-box' });
         item.actor.add(container, { expand: true });
         newMenuSet.menu.addMenuItem(item);
       }
-      let button = new St.Button({ label: emoji, style_class: 'emoji' });
-      container.add_child(button, {hover: true});
 
-      button.connect('clicked', Lang.bind(menuBase, function(){
-        Clipboard.set_text(CLIPBOARD_TYPE, emoji );
-      }, i));
+      let button = new EmojiButton(emoji, menuBase)
+      container.add_child(button, {hover: true});
     }
 
 

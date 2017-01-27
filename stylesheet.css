@@ -1,9 +1,14 @@
 
-.EmojisItemStyle {
-    font-size: 2em;
-    font-family: Noto Emoji, Symbola ;
+.emoji {
+  font-size: 2em;
+  font-family: Noto Emoji, Symbola;
+  padding: 0 0.2em;
 }
 
-.emoji {
-  padding: 0 0.2em;
+.emoji:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.emoji:active {
+  background-color: rgba(0, 0, 0, 0.6);
 }
