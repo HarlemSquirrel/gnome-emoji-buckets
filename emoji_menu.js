@@ -19,7 +19,7 @@ const EmojiMenu = new Lang.Class({
     let box = new St.BoxLayout();
 
     let toplabel = new St.Label({
-      text: '🤣',
+      text: '😉',
       y_expand: true,
       y_align: Clutter.ActorAlign.CENTER
     });
@@ -34,7 +34,7 @@ const EmojiMenu = new Lang.Class({
     this.addEmojiSet('Travel', Emojis.TRAVEL, this)
     this.addEmojiSet('Objects', Emojis.OBJECTS, this)
     this.addEmojiSet('Symbols', Emojis.SYMBOLS, this)
-    // this.addEmojiSet('Flags', Emojis.FLAGS, this)
+    this.addEmojiSet('Flags', Emojis.FLAGS, this)
   },
 
   addEmojiSet: function(title, emojiSet, menuBase) {
