@@ -1,0 +1,26 @@
+<!--
+Compile schemas with
+glib-compile-schemas schemas/
+
+Test out the prefs with
+gnome-shell-extension-prefs
+
+Access this panel menu with
+imports.ui.main.panel.statusArea.EmojiMenu
+-->
+
+<schemalist gettext-domain="emoji_buckets">
+  <schema path="/org/gnome/shell/extensions/emoji-buckets/" id="org.gnome.shell.extensions.emoji-buckets">
+    <key type="s" name="placement">
+      <default>"right"</default>
+      <summary>Placement</summary>
+      <description>Placement in the panel can be center or right.</description>
+    </key>
+
+    <key type="i" name="font-size">
+      <default>2</default>
+      <summary>Font size</summary>
+      <description>Font size of the emoji in the buckets.</description>
+    </key>
+  </schema>
+</schemalist>

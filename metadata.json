@@ -1,6 +1,7 @@
 {
   "name": "Emoji Buckets",
   "description": "Buckets of emoji for your messaging pleasure.",
+  "settings-schema": "org.gnome.shell.extensions.emoji-buckets",
   "shell-version": [
     "3.18",
     "3.20",

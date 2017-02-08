@@ -1,9 +1,12 @@
 
 .emoji {
-  font-size: 2em;
   font-family: EmojiOne, 'Noto Emoji', Symbola;
   padding: 0 0.2em;
 }
+
+.emoji-size-1 { font-size: 1em; }
+.emoji-size-2 { font-size: 2em; }
+.emoji-size-3 { font-size: 3em; }
 
 .emoji:hover {
   background-color: rgba(0, 0, 0, 0.3);
