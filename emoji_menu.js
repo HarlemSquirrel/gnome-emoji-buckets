@@ -71,7 +71,7 @@ const EmojiMenu = new Lang.Class({
     let _prefs = _appSys.lookup_app('gnome-shell-extension-prefs.desktop');
     item = new PopupMenu.PopupMenuItem(_("Preferences..."));
     item.connect('activate', function () {
-      if (_prefs.get_state() == _prefs.SHELL_APP_STATE_RUNNING){
+      if (_prefs.get_state() === _prefs.SHELL_APP_STATE_RUNNING){
         _prefs.activate();
       } else {
         let info = _prefs.get_app_info();

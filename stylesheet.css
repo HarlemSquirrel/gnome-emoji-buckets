@@ -9,9 +9,11 @@
 .emoji-size-3 { font-size: 3em; }
 
 .emoji:hover {
+  background-color: #666;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 .emoji:active {
+  background-color: #333;
   background-color: rgba(0, 0, 0, 0.6);
 }

@@ -15,5 +15,5 @@ const EmojiButton = new Lang.Class({
 
     this.label = emojiText;
     this.style_class = 'emoji';
-  },
+  }
 })

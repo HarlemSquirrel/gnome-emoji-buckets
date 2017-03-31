@@ -30,7 +30,7 @@ const EmojiBucketsPrefsWidget = new GObject.Class({
 
   _onFontSizeChanged: function (fontSize) {
     this._settings.set_int('font-size', fontSize.get_value());
-  },
+  }
 });
 
 function buildPrefsWidget() {
