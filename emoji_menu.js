@@ -10,6 +10,8 @@ const Convenience = Me.imports.convenience;
 const Emojis = Me.imports.emojis;
 const EmojiButton = Me.imports.emoji_button.EmojiButton;
 
+const Gettext = imports.gettext.domain('emoji-buckets');
+const _ = Gettext.gettext;
 
 const EmojiMenu = new Lang.Class({
   Name: 'EmojiMenu',
@@ -29,14 +31,14 @@ const EmojiMenu = new Lang.Class({
     box.add(toplabel);
     this.actor.add_child(box);
 
-    this.addEmojiSet('Smileys & People', Emojis.SMILEYS, this)
-    this.addEmojiSet('Nature', Emojis.NATURE, this)
-    this.addEmojiSet('Food', Emojis.FOOD, this)
-    this.addEmojiSet('Activities', Emojis.ACTIVITIES, this)
-    this.addEmojiSet('Travel', Emojis.TRAVEL, this)
-    this.addEmojiSet('Objects', Emojis.OBJECTS, this)
-    this.addEmojiSet('Symbols', Emojis.SYMBOLS, this)
-    this.addEmojiSet('Flags', Emojis.FLAGS, this)
+    this.addEmojiSet(_("Smileys & People"), Emojis.SMILEYS, this)
+    this.addEmojiSet(_("Nature"), Emojis.NATURE, this)
+    this.addEmojiSet(_("Food"), Emojis.FOOD, this)
+    this.addEmojiSet(_("Activities"), Emojis.ACTIVITIES, this)
+    this.addEmojiSet(_("Travel"), Emojis.TRAVEL, this)
+    this.addEmojiSet(_("Objects"), Emojis.OBJECTS, this)
+    this.addEmojiSet(_("Symbols"), Emojis.SYMBOLS, this)
+    this.addEmojiSet(_("Flags"), Emojis.FLAGS, this)
 
     let prefsMenuItem = this.prefsMenuItem()
     this.menu.addMenuItem(prefsMenuItem);
