@@ -58,7 +58,7 @@ const EmojiMenu = new Lang.Class({
       }
 
       let button = new EmojiButton(emoji, menuBase)
-      container.add_child(button, {hover: true});
+      container.add_child(button);
     }
 
     menuBase.menu.addMenuItem(newMenuSet);
@@ -69,7 +69,7 @@ const EmojiMenu = new Lang.Class({
   prefsMenuItem: function() {
     let _appSys = Shell.AppSystem.get_default();
     let _prefs = _appSys.lookup_app('gnome-shell-extension-prefs.desktop');
-    item = new PopupMenu.PopupMenuItem(_("Preferences..."));
+    let item = new PopupMenu.PopupMenuItem(_("Preferences..."));
     item.connect('activate', function () {
       if (_prefs.get_state() === _prefs.SHELL_APP_STATE_RUNNING){
         _prefs.activate();
