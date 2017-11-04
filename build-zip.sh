@@ -12,4 +12,4 @@ VERSION="$(underscore extract --in metadata.json 'version')"
 UUID="$(underscore extract --in metadata.json --outfmt text 'uuid')"
 
 printf "  Zipping into $UUID-v$VERSION\n"
-zip -jr "$UUID-v$VERSION" schemas *.js *.json *.css LICENSE README.md
+zip -r "$UUID-v$VERSION" schemas *.js *.json *.css LICENSE README.md
