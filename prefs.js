@@ -5,7 +5,11 @@ const Lang = imports.lang;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
 
+const Gettext = imports.gettext.domain('emoji-buckets');
+const _ = Gettext.gettext;
+
 function init() {
+  Convenience.initTranslations("emoji-buckets");
 }
 
 const EmojiBucketsPrefsWidget = new GObject.Class({
@@ -19,7 +23,7 @@ const EmojiBucketsPrefsWidget = new GObject.Class({
 
     this._settings = Convenience.getSettings();
 
-    this.attach(new Gtk.Label({ label: "Font size (requires restart)" }), 0, 0, 1, 1);
+    this.attach(new Gtk.Label({ label: _("Font size") + " " + "(" + _("requires restart") +")" }), 0, 0, 1, 1);
     let fontSize = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 1, 3, 1);
     fontSize.set_value(this._settings.get_int('font-size'));
     fontSize.set_digits(0);
