@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-15 21:14+0200\n"
+"PO-Revision-Date: 2021-07-12 14:17+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: emoji_menu.js:34
+msgid "Smileys & People"
+msgstr "Lachebekjes en personen"
+
+#: emoji_menu.js:35
+msgid "Nature"
+msgstr "Natuur"
+
+#: emoji_menu.js:36
+msgid "Food"
+msgstr "Eten en drinken"
+
+#: emoji_menu.js:37
+msgid "Activities"
+msgstr "Activiteiten"
+
+#: emoji_menu.js:38
+msgid "Travel"
+msgstr "Reizen"
+
+#: emoji_menu.js:39
+msgid "Objects"
+msgstr "Objecten"
+
+#: emoji_menu.js:40
+msgid "Symbols"
+msgstr "Symbolen"
+
+#: emoji_menu.js:41
+msgid "Flags"
+msgstr "Vlaggen"
+
+#: emoji_menu.js:74
+msgid "Preferences..."
+msgstr "Voorkeuren…"
+
+#: prefs.js:26
+msgid "Font size"
+msgstr "Tekstgrootte"
+
+#: prefs.js:26
+msgid "requires restart"
+msgstr "herstart vereist"
